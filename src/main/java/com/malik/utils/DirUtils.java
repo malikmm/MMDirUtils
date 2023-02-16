@@ -7,6 +7,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,17 +20,20 @@ public class DirUtils {
 
 	/**
 	 * Get all dirs and files
+	 * @return 
 	 */
-	public void getAll() {
+	public List<String> getAll() {
 		String dirName = "C:/temp/projects";
         File file = new File(dirName);
+        List<String> df = new ArrayList<>();
 
         try {
 			Files.walkFileTree(file.toPath(), new SimpleFileVisitor<Path>() {
 			    @Override
 			    public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
 			        log.info(file.toString());
-			        System.out.println(file);
+//			        System.out.println(file);
+			        df.add(file.toString() + "<br>");
 			        return FileVisitResult.CONTINUE;
 			    }
 			});
@@ -36,6 +41,7 @@ public class DirUtils {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+        return df;
 	}
 
 }
