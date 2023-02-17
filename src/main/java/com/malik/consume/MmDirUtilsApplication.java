@@ -11,6 +11,7 @@ public class MmDirUtilsApplication {
 	private static final Logger log = LoggerFactory.getLogger(MmDirUtilsApplication.class);
 
 	public static void main(String[] args) {
+		log.info("Start App");
 		SpringApplication.run(MmDirUtilsApplication.class, args);
 	}
 

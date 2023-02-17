@@ -13,8 +13,6 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.malik.controller.DirUtilsController;
-
 public class DirUtils {
 	private static final Logger log = LoggerFactory.getLogger(DirUtils.class);
 
@@ -32,14 +30,12 @@ public class DirUtils {
 			    @Override
 			    public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
 			        log.info(file.toString());
-//			        System.out.println(file);
 			        df.add(file.toString() + "<br>");
 			        return FileVisitResult.CONTINUE;
 			    }
 			});
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			log.info(e.getMessage());
 		}
         return df;
 	}
