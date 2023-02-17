@@ -15,13 +15,15 @@ public class DirUtilsController {
 	private static final Logger log = LoggerFactory.getLogger(DirUtilsController.class);
 	
 	@RequestMapping("/getAll")
-    public void hello() {
+    public String hello() {
 		log.info("Read Dir");
+		
 		DirUtils utils = new DirUtils();
 		List<String> df = utils.getAll();
 		df.forEach(n->System.out.println(n));
 		
 //        return "Hello World, Spring Boot!";
+		return df.toString();
     }
 	
 }
